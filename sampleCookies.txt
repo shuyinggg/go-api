@@ -1,0 +1,11 @@
+[
+    {
+        "name": "Cookie1",
+        "value": "This is cookie 1"
+    },
+    {
+        "name": "Cookie2",
+        "value": "This is cookie 2"
+    }
+
+]
