@@ -1,0 +1,22 @@
+1. Add logrus package and use for logging
+2. Implement 3 REST APIs
+ 2.1 GET /cookie will return a Json of all cookies or an empty json if none are present
+ 2.2 POST /cookie Take a JSON input of an array of name value pairs and sets those cookies
+ 2.3 DELETE /cookie Will delete all the cookies in the request
+3. Write a unit tests to make sure that 2.1, 2.2 and 2.3 works correctly.
+4. write a package called cookie_handler that will do the core logic for all cookie parsing.
+
+Guidelines
+1. Make sure all the error cases are handled. 
+  e.g is client sends invalid json input or duplicate json input
+
+   invalid json input
+   respond with message {"error": true, "message": "invalid json"}
+
+   For duplicate json input, there is no error, the response just sets the last value of the cookie.
+
+Definition of Done.
+
+1. There should be a good documentation for how someone can use these APIS
+2. The test cases should run and cover all usecases
+3. Code is neatly organized

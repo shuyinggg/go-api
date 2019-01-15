@@ -49,7 +49,7 @@ func PostCookies(w http.ResponseWriter, r *http.Request) {
 	if CheckValidInput(body) {
 		json.Unmarshal(body, &c)
 		if CheckDuplicate(c) {
-			errmsg := `[{"err": "new", "msg": "Duplicate! Please check input"}]`
+			errmsg := `[{"err": "true", "msg": "Duplicate! Please check input"}]`
 			io.WriteString(w, errmsg)
 			logrus.Println("Duplicate! Please check input")
 		} else {
@@ -62,7 +62,7 @@ func PostCookies(w http.ResponseWriter, r *http.Request) {
 			logrus.Println("Post Success!")
 		}
 	} else {
-		errmsg := `[{"err": "new", "msg": "Invalid input! Please check input"}]`
+		errmsg := `[{"err": "true", "msg": "Invalid input! Please check input"}]`
 		io.WriteString(w, errmsg)
 		logrus.Println("Invalid input! Please check input")
 	}

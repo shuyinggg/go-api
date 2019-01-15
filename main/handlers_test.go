@@ -8,14 +8,13 @@ import (
 	"testing"
 	"bytes"
 	"strings"
+	//"fmt"
 )
 
 const url = "http://localhost:4040/cookie"
-
-//TestGetCookiesnULL 
+ 
 func TestGetCookiesNull(t *testing.T) {
 	v := []byte{}
-
 	predictedRes, _ := json.Marshal(v)
 
 	req, _ := http.NewRequest("GET", url, nil)
@@ -26,17 +25,10 @@ func TestGetCookiesNull(t *testing.T) {
 }
 
 func TestPostAndGetCookies(t *testing.T) {
-	
-	// v := []byte{
-	// 	`[ 
-	// 		{ "Name\": \"Cookie123\","Value\": \"This is cookie 100\"\n    },\n      {\n        \"Name\": \"Cookie34\",\n        \"Value\": \"This is cookie 34\"\n}
-	// 	 ]`
-	
-
-	str := "[\n    {\n        \"Name\": \"Cookie123\",\n        \"Value\": \"This is cookie 100\"\n    },\n      {\n        \"Name\": \"Cookie34\",\n        \"Value\": \"This is cookie 34\"\n    }\n]"
-	predictedRes, _ := json.Marshal(str)
+	sample := `[{"Name": "Cookie1", "Value": "This is cookie1."},{"Name": "Cookie2", "Value": "This is cookie2."}]`
+	predictedRes, _ := json.Marshal(sample)
 	//test POST:
-	postreq,_ := http.NewRequest("POST", url, strings.NewReader(str))
+	postreq,_ := http.NewRequest("POST", url, strings.NewReader(sample))
 	postres,_ := http.DefaultClient.Do(postreq)
 	defer postres.Body.Close()
 	
@@ -63,9 +55,9 @@ func TestDeleteAndGetCookies(t *testing.T) {
 
 func TestPostDuplicateCookies(t *testing.T) {
 	predictedRes, _ := json.Marshal([]byte{})
-	str := "[\n    {\n        \"Name\": \"Cookie123\",\n        \"Value\": \"This is cookie 100\"\n    },\n      {\n        \"Name\": \"Cookie123\",\n        \"Value\": \"This is cookie 34\"\n    }\n]"
+	sample := `[{"Name": "Cookie1", "Value": "This is cookie1."},{"Name": "Cookie2", "Value": "This is cookie2."}]`
 	//test POST:
-	postreq,_ := http.NewRequest("POST", url, strings.NewReader(str))
+	postreq,_ := http.NewRequest("POST", url, strings.NewReader(sample))
 	postres,_ := http.DefaultClient.Do(postreq)
 	defer postres.Body.Close()
 
