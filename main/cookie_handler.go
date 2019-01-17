@@ -10,7 +10,7 @@ import(
 //SetHeaders sets the header Cotent-tYPE for cookies
 func SetHeaders(w http.ResponseWriter) http.ResponseWriter {
 	w.Header().Set("Content-Type", "application/json; encoding=utf-8")
-	w.WriteHeader(http.StatusOK)
+	//w.WriteHeader(http.StatusOK)
 	return w
 }
 

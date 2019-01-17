@@ -20,3 +20,8 @@ Definition of Done.
 1. There should be a good documentation for how someone can use these APIS
 2. The test cases should run and cover all usecases
 3. Code is neatly organized
+
+
+//check server (download their projects)
+//improve equal
+//make json methods consistent

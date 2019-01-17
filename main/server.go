@@ -8,7 +8,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-//main main server 
+//Server the program server
 func main() {
 	mux := http.NewServeMux()
 

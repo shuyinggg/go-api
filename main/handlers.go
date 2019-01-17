@@ -43,8 +43,8 @@ func GetCookies(w http.ResponseWriter, r *http.Request) {
 
 //PostCookies POST and PUT handler
 func PostCookies(w http.ResponseWriter, r *http.Request) {
+	SetHeaders(w)
 	var c []http.Cookie
-	w = SetHeaders(w)
 	body, _ := ioutil.ReadAll(r.Body)
 	if CheckValidInput(body) {
 		json.Unmarshal(body, &c)
@@ -71,6 +71,7 @@ func PostCookies(w http.ResponseWriter, r *http.Request) {
 
 //DeleteCookies DELETE handler
 func DeleteCookies(w http.ResponseWriter, r *http.Request) {
+	SetHeaders(w)
 	cookies := r.Cookies()
 	if cookies != nil {
 		for _, item := range cookies {
@@ -81,7 +82,6 @@ func DeleteCookies(w http.ResponseWriter, r *http.Request) {
 				Expires: time.Unix(0, 0)})
 		}
 	}
-	w = SetHeaders(w)
 	json.NewEncoder(w).Encode(r.Cookies())
 	logrus.Println("Delete Success!")
 }
