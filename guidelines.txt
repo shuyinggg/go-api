@@ -25,3 +25,11 @@ Definition of Done.
 //check server (download their projects)
 //improve equal
 //make json methods consistent
+
+
+1. Make sure you use right datastructures in tests
+
+
+#1. Study about Golang concurrency
+#2. Study websockets
+#3. vue.js
